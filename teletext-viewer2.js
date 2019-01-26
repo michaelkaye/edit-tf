@@ -309,6 +309,17 @@ var _viewer_displayactivepage = function()
 		_viewer_showpagenumber(_viewer_activepagenumber);
 		// Re-add the time
 		_viewer_showtime();
+		
+		timer = _viewer_loaded_pages[_viewer_activepagenumber].data["timer"];
+		if (timer) {
+			window.setTimeout(function() {
+				timer_target = _viewer_loaded_pages[_viewer_activepagenumber].data["timer_target"];
+				if (timer_target) {
+					_viewer_newpagenumber = timer_target;
+					_viewer_changepage();
+				}
+			}, timer*1000);
+		}
 
 //		// Redraw everything   WHY?
 //		editor.redraw();
