@@ -232,6 +232,13 @@ this._viewer_keypress = function(code)
 		_viewer_newpagenumber = _viewer_loaded_pages[_viewer_activepagenumber].data["blue"];
 		_viewer_changepage();
 	}
+	if ( code == 109 ) // m
+	{
+		console.log(_viewer_loaded_pages[_viewer_activepagenumber].data);
+		window.location.href = "https://edit.tf/"+_viewer_loaded_pages[_viewer_activepagenumber].pagecontent;
+		_viewer_changepage();
+	}
+
 	if ( code >= 48 && code <= 57 ) // this is a numeric character...
 	{
 		// Add the digit to the page number
